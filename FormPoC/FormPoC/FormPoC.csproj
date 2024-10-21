@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Components\Pages\FormPoc\Partial\FormPocTab2\" />
+    <Folder Include="Components\Pages\FormPoc\Partial\FormPocTab3\" />
+  </ItemGroup>
+
 </Project>
