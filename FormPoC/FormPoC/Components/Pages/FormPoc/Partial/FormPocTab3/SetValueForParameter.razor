@@ -1,0 +1,13 @@
+﻿
+<div class="row">
+    <div class="col-6">
+        <label for="value">@ParameterModel.WeightValueInputModel.ParameterNameForValue.Name</label>
+    </div>
+    <div class="col-6">
+        <input id="value" type="text" value="@ParameterModel.WeightValueInputModel.ParametersValue" class="form-control" readonly />
+    </div>
+</div>
+
+@code {
+    [Parameter] [Required] public SetValueForParameterModel ParameterModel { get; set; }
+}

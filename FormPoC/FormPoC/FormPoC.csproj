@@ -6,4 +6,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Components\Pages\FormPoc\Partial\FormPocTab2\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FormPageLibrary\FormPageLibrary.csproj" />
+  </ItemGroup>
+
 </Project>
