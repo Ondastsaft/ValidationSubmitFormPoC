@@ -4,10 +4,12 @@
         <label for="value">@ParameterModel.WeightValueInputModel.ParameterNameForValue.Name</label>
     </div>
     <div class="col-6">
-        <input id="value" type="text" value="@ParameterModel.WeightValueInputModel.ParametersValue" class="form-control" readonly />
+        <input id="value" type="text" value="@ParameterModel.WeightValueInputModel.ParametersValue" class="form-control"
+               readonly="IsReadOnly" />
     </div>
 </div>
 
 @code {
     [Parameter] [Required] public SetValueForParameterModel ParameterModel { get; set; }
+    [Parameter] public bool IsReadOnly { get; set; }  // checks if the field is readonly
 }

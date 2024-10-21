@@ -1,0 +1,20 @@
+﻿<h3>CheckBoxParentComponent</h3>
+
+<CheckBoxManager CheckBoxes="checkboxes" checkBoxChanges="OnCheckBoxChanged" />
+
+@code {
+    private List<CheckBoxModel> checkboxes;
+
+    protected override void OnInitialized()
+    {
+        // Simulating the use of CheckBoxService without injection
+        var checkBoxService = new CheckBoxServices();
+        checkboxes = checkBoxService.CheckBoxes();
+    }
+
+
+    private void OnCheckBoxChanged(CheckBoxModel checkbox)
+    {
+       
+    }
+}

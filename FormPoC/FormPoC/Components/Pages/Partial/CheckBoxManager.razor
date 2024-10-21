@@ -1,0 +1,26 @@
+﻿@* <p>childcompnent</p>
+ *@
+ <div>
+    @foreach (var checkbox in CheckBoxes)
+    {
+        <div>
+            <input type="checkbox" @bind="checkbox.IsChecked"/> @checkbox.Label
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public List<CheckBoxModel> CheckBoxes { get; set; } = new();
+    [Parameter] public EventCallback<CheckBoxModel> checkBoxChanges { get; set; }
+
+
+    private async Task OnCheckBoxChanged(CheckBoxModel checkbox)
+    {
+        if (checkBoxChanges.HasDelegate)
+        {
+            await checkBoxChanges.InvokeAsync(checkbox);
+        }
+
+       
+    }
+}
