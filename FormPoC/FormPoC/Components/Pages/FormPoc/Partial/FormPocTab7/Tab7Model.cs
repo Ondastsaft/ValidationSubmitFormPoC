@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FormPageLibrary.Enum;
 
 namespace FormPoC.Components.Pages.FormPoc.Partial.FormPocTab7
 {
     public class Tab7Model
     {
-        public enum Tab7DistanceRadioOptions
+        public RadioButtonGroupModel<Tab7DistanceRadioOptions> Tab7DistanceRadioButtonGroupModel { get; set; }
+
+        public Tab7Model()
         {
-            short_distance,
-            medium_distance,
-            long_distance
+            var radioButtonDictionary = DAL.Tab7DistanceRadioGroupDAL.GetDistanceRadioOptions();
+            Tab7DistanceRadioButtonGroupModel = new RadioButtonGroupModel<Tab7DistanceRadioOptions>(radioButtonDictionary)
+            {
+                SelectedValue = Tab7DistanceRadioOptions.short_distance
+            };
         }
-        public RadioButtonGroupModel<Tab7DistanceRadioOptions> Tab7DistanceRadioButtonGroupModel { get; set; } = new RadioButtonGroupModel<Tab7DistanceRadioOptions>
-        {
-            SelectedValue = Tab7DistanceRadioOptions.short_distance
-        };
     }
 }
