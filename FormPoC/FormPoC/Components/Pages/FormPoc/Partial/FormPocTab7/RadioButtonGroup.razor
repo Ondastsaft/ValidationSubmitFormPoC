@@ -1,18 +1,26 @@
-﻿<h3>RadioButtonGroup</h3>
+﻿
 
-@for(int i = 0; i < RadioModel.radioOptions.Count; i++)
+
+
+@for (int i = 0; i < RadioButtonGroupModel.radioOptions.Count; i++)
 {
-    <input @onclick="SelectedRadioButton" type="radio" id="@RadioModel.radioOptions[i]" name="radio_list" bind-@RadioModel.SelectedValue="@RadioModel.radioOptions[i]">
-    <label for="@RadioModel.radioOptions[i]">@RadioModel.radioOptions[i]</label>
-    <br>
+    <input type="radio" id="@RadioButtonGroupModel.radioOptions[i]" 
+           name="radio_list" 
+           value="@RadioButtonGroupModel.radioOptions[i]" 
+           @onchange="OnValueChanged" 
+           checked="@EqualityComparer<TEnum>.Default.Equals(RadioButtonGroupModel.SelectedValue, RadioButtonGroupModel.radioOptions[i])" />
+
+    <label for="@RadioButtonGroupModel.radioOptions[i]">@RadioButtonGroupModel.radioOptions[i]</label>
+    <br />
 }
 
-
+@typeparam TEnum where TEnum : Enum
 @code {
-    [Parameter][Required] public RadioButtonGroupModel RadioModel { get; set; }
+    [Parameter, Required]
+    public RadioButtonGroupModel<TEnum> RadioButtonGroupModel { get; set; }
 
-    public void SelectedRadioButton()
+    private async Task OnValueChanged(ChangeEventArgs e)
     {
-        Console.WriteLine(RadioModel);
+        RadioButtonGroupModel.SelectedValue = (TEnum)Enum.Parse(typeof(TEnum), e.Value.ToString());
     }
 }
