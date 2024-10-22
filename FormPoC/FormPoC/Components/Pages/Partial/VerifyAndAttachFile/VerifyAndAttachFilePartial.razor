@@ -1,0 +1,19 @@
+﻿<div class="row">
+    <div class="col-6">
+        <input type="checkbox" title="@controller.VerificationCheckBoxTitle" disabled="@controller.IsDisabled" @bind="controller.HasVerified"/>
+    </div>
+    <div class="col-6">
+        <InputFile OnChange="controller.HandleFileSelected" />
+    </div>
+    <div>
+        <button class="btn btn-primary" @onclick="@controller.SaveFileToDestinationAsync" disabled="@(!controller.HasVerified)">
+            @controller.SubmitButtonTitle
+        </button>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    [Required]
+    public VerifyAndAttachFileController controller { get; set; }
+}
