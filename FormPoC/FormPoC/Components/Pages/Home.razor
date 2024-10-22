@@ -1,10 +1,9 @@
 ﻿@page "/"
 @using FormPoC.Components.Pages.FormPoc.Partial.FormPocTab7
-
+@using FormPoC.Components.Pages.Partial.Checkbox
+@using FormPoC.Components.Pages.FormPoc.Partial.FormPocTab3
+@rendermode InteractiveServer
 
 <Tab7></Tab7>
-
-
-  <CheckBoxParentComponent></CheckBoxParentComponent>
-
+<CheckBoxParentComponent @rendermode="InteractiveServer"></CheckBoxParentComponent>
 <Tab3></Tab3> 

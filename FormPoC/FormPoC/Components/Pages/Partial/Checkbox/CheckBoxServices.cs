@@ -6,26 +6,26 @@ using System.Threading.Tasks;
 
 namespace FormPageLibrary.ComponentModels
 {
-    public class CheckBoxServices
+    public static class CheckBoxServices
     {
-        private readonly Dictionary<string, bool> _checkboxVisibilityMap = new();
-        public void UpdateVisibility(string checkboxLabel, bool isChecked)
+        private static readonly Dictionary<string, bool> _checkboxValueMap = new();
+        public static void UpdateValue(string checkboxLabel, bool isChecked)
         {
-            if (_checkboxVisibilityMap.ContainsKey(checkboxLabel))
+            if (_checkboxValueMap.ContainsKey(checkboxLabel))
             {
-                _checkboxVisibilityMap[checkboxLabel] = isChecked;
+                _checkboxValueMap[checkboxLabel] = isChecked;
             }
             else
             {
-                _checkboxVisibilityMap.Add(checkboxLabel, isChecked);
+                _checkboxValueMap.Add(checkboxLabel, isChecked);
             }
         }
 
-        public bool IsInputVisible(string checkboxLabel)
+        public static bool IsInputVisible(string checkboxLabel)
         {
-            return _checkboxVisibilityMap.TryGetValue(checkboxLabel, out var isVisible) && isVisible;
+            return _checkboxValueMap.TryGetValue(checkboxLabel, out var isVisible) && isVisible;
         }
-        public List<CheckBoxModel> CheckBoxes()
+        public static  List<CheckBoxModel> GetWeightDistanceCheckBoxes()
         {
             return new List<CheckBoxModel>
             {

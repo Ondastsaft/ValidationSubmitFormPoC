@@ -1,0 +1,9 @@
+﻿<div>
+    <input type="checkbox" @bind="CheckBox.IsChecked" @attributes="AdditionalAttributes" />
+    @CheckBox.Label
+</div>
+
+@code {
+    [Parameter] public CheckBoxModel CheckBox { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)] public Dictionary<string, object> AdditionalAttributes { get; set; }
+}
