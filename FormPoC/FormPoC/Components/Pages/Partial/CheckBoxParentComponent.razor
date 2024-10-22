@@ -1,15 +1,21 @@
 ﻿<h3>CheckBoxParentComponent</h3>
 
 <CheckBoxManager CheckBoxes="checkboxes" checkBoxChanges="OnCheckBoxChanged" />
-
+@if (isWeightVisible)
+{
+    <SetValueForParameter ParameterModel="tab3Model.WeightValueModel" IsReadOnly="false"></SetValueForParameter>
+}
 @code {
     private List<CheckBoxModel> checkboxes;
-
+    private bool isWeightVisible = false;
+    private Tab3Model tab3Model { get; set; }
     protected override void OnInitialized()
     {
         // Simulating the use of CheckBoxService without injection
         var checkBoxService = new CheckBoxServices();
         checkboxes = checkBoxService.CheckBoxes();
+
+
     }
 
 
