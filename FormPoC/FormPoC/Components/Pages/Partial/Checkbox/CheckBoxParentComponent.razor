@@ -1,7 +1,7 @@
-﻿
+﻿    
 @foreach (CheckBoxModel checkBox in checkboxes)
 {
-    <CheckBoxComponent CheckBox="checkBox" @onchange="(e) => OnTermsAcceptedChanged((bool)e.Value, checkBox)" @rendermode="InteractiveServer" />
+    <CheckBoxComponent CheckBox="checkBox" @key="checkBox" @onchange="(e) => OnTermsAcceptedChanged((bool)e.Value, checkBox)"/>
 }
 
 @code {

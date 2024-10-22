@@ -11,7 +11,14 @@ namespace FormPageLibrary.ComponentModels
     {
         public int Id { get; set; }
         public string Label { get; set; }
-        public bool IsChecked { get; set; }
+        private bool isChecked { get; set; }
+        public bool IsChecked { get => isChecked;
+            set
+            {
+                isChecked = value;
+                IsCheckedChanged.InvokeAsync(value);
+            }
+        }
         public EventCallback<bool> IsCheckedChanged { get; set; }
     }
 }
