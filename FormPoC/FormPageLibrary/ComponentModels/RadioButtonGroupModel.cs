@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace FormPageLibrary.ComponentModels
 {
-    public class SetValueForParameterModel
+    public class RadioButtonGroupModel
     {
-        public ParameterWithValue WeightValueInputModel { get; set; }
+        public List<string> radioOptions = new List<string>();
+
     }
 }
