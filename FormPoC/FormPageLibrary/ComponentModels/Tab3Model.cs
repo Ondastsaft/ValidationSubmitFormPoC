@@ -11,8 +11,10 @@ namespace FormPageLibrary.ComponentModels
         public SetValueForParameterModel WeightValueModel { get; set; } = new()
         {
             WeightValueInputModel = new()
-                { ParametersValue = new IntValue(), ParameterNameForValue = new() { Name = "Weight" } }
+            {
+                ParametersValue = new IntValue(),
+                ParameterNameForValue = new() { Name = "Weight" }
+            }
         };
-
     }
 }

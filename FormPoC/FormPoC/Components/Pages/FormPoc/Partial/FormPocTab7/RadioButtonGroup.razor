@@ -1,0 +1,25 @@
+﻿@foreach (var option in RadioButtonGroupModel.RadioOptions)
+{
+    <input type="radio"
+           id="@option.Key"
+           name="radio_list"
+           value="@option.Key"
+           @onchange="OnValueChanged"
+           checked="@(RadioButtonGroupModel.SelectedValue.Equals(option.Key))"
+           aria-label="@option.Value" /> <!-- Using the dictionary string for aria-label -->
+
+    <label for="@option.Key">@option.Value</label>
+    <br />
+}
+
+@typeparam TEnum where TEnum : Enum
+@code {
+    [Parameter, Required]
+    public RadioButtonGroupModel<TEnum> RadioButtonGroupModel { get; set; }
+
+    private void OnValueChanged(ChangeEventArgs e)
+    {
+        TEnum selectedValue = (TEnum)Enum.Parse(typeof(TEnum), e.Value.ToString());
+        RadioButtonGroupModel.SelectedValue = selectedValue; 
+    }
+}
