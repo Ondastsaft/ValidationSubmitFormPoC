@@ -21,6 +21,6 @@
     private void OnValueChanged(ChangeEventArgs e)
     {
         TEnum selectedValue = (TEnum)Enum.Parse(typeof(TEnum), e.Value.ToString());
-        Controller.SelectedValue = selectedValue; 
+        Controller.SelectedValue = selectedValue;
     }
 }

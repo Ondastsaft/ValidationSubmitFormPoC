@@ -29,7 +29,7 @@ namespace FormPoC.DAL
         }
         public static async Task<DropDownFromListController> GetCompanyDropdownControllerAsync( )
         {
-            return new DropDownFromListController(new List<DropDownItemDTO>(), "Visa anställda", "Välj en anställd");
+            return new DropDownFromListController(new List<DropDownItemDTO>(), "Visa företag", "Välj ett företag");
         }
 
         public static async Task<SetValueForParameterController> GetSetWeightController()

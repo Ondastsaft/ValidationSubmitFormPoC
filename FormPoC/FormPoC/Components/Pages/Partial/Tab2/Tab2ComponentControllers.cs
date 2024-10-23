@@ -37,8 +37,23 @@ namespace FormPoC.Components.Pages.Partial.Tab2
             SelectDistanceController = await Tab2Dal.GetSelectDistanceController();
             VerifyAndAttachFileDistanceController = await Tab2Dal.GetVerifyAndAttachFileDistanceController();
             VerifyAndAttachFileHeightController = await Tab2Dal.GetVerifyAndAttachHeightController();
+            SelectDistanceController.ValueHasChanged = await HandleSelectDistanceParameterSet()
         }
 
+        private async Task HandleSelectDistanceParameterSet()
+        {
+            switch (SelectDistanceController.SelectedValue)
+            {
+                case Tab2DistanceRadioOptions.long_distance:
+                    VerifyAndAttachFileDistanceController.IsDisabled = false;
+                    break;
+
+                default:
+                    VerifyAndAttachFileDistanceController.IsDisabled = true;
+                    VerifyAndAttachFileHeightController.IsDisabled = false;
+                    break;
+            }
+        }
     }
 }
 
