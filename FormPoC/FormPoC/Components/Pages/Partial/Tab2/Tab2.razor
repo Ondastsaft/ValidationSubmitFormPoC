@@ -48,7 +48,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <SetValueForParameter Controller="Controller.ComponentControllers.SetHeightController"></SetValueForParameter>
+                <SetValueForParameter Controller="Controller.ComponentControllers.SetAltitudeController"></SetValueForParameter>
             </div>
         </div>
     </div>
@@ -69,6 +69,7 @@
         <GenericButton ButtonController="Controller.ComponentControllers.SubmitButtonController"></GenericButton>
     </div>
 </div>
+
 @code {
     [Parameter]
     [Required]
@@ -83,7 +84,10 @@
         await Controller.ComponentControllers.InitializeControllersAsync();
 
         Controller.ComponentControllers.ShowWeightController.IsCheckedChanged = EventCallback.Factory.Create<bool>(this, Controller.HandleShowWeightChecked);
+        Controller.ComponentControllers.ShowAltitudeController.IsCheckedChanged = EventCallback.Factory.Create<bool>(this, Controller.HandleShowAltitudeChecked);
+        Controller.ComponentControllers.ShowDistanceController.IsCheckedChanged = EventCallback.Factory.Create<bool>(this, Controller.HandleShowDistanceChecked);
+        Controller.ComponentControllers.SelectDistanceRadioButtonGroupController.ValueHasChanged = EventCallback.Factory.Create<bool>(this, Controller.HandleSelectDistanceParameterSet);
+        Controller.ComponentControllers.SetAltitudeController.OnValueSet = EventCallback.Factory.Create<bool>(this, Controller.HandleSetHeightInput);
+        Controller.ComponentControllers.CompanyDropDownController.OnDropDownSelect = EventCallback.Factory.Create<bool>(this, Controller.HandleCompanySelected);
     }
-
-
 }

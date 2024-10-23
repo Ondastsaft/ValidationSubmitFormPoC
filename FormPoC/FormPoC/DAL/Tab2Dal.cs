@@ -25,21 +25,21 @@ namespace FormPoC.DAL
         };
         public static async Task<DropDownFromListController> GetEmployeeDropdownControllerAsync()
         {
-            var companies = await GetCompaniesAsDropDownItemDTOs();
-            return new DropDownFromListController(new List<DropDownItemDTO>(), "Visa anställda", "Välj en anställd");
+            return new DropDownFromListController(new List<DropDownItemDTO>(), "Visa anställda", "Välj en anställd"){SelectedItem = new DropDownItemDTO()};
         }
         public static async Task<DropDownFromListController> GetCompanyDropdownControllerAsync( )
         {
-            return new DropDownFromListController(new List<DropDownItemDTO>(), "Visa företag", "Välj ett företag"){IsDisabled = false};
+            var companies = await GetCompaniesAsDropDownItemDTOs();
+            return new DropDownFromListController(companies, "Visa företag", "Välj ett företag"){SelectedItem = new DropDownItemDTO(),IsDisabled = false};
         }
 
         public static async Task<SetValueForParameterController> GetSetWeightController()
         {
-            return new SetValueForParameterController("Vikt", "0");
+            return new SetValueForParameterController("Vikt");
         }
         public static async Task<SetValueForParameterController> GetSetHeightController()
         {
-            return new SetValueForParameterController("Höjd", "0");
+            return new SetValueForParameterController("Höjd");
         }
         public static async Task<CheckBoxController> GetShowDistanceController()
         {
@@ -61,7 +61,7 @@ namespace FormPoC.DAL
                 { Tab2DistanceRadioOptions.medium_distance, "> 100km" },
                 { Tab2DistanceRadioOptions.long_distance, "> 10 000km" }
             };
-            return new RadioButtonGroupController<Tab2DistanceRadioOptions>(dictionary){IsDisabled = false};
+            return new RadioButtonGroupController<Tab2DistanceRadioOptions>(dictionary);
         }
         public static async Task<VerifyAndAttachFileController> GetVerifyAndAttachFileDistanceController()
         {
@@ -74,7 +74,7 @@ namespace FormPoC.DAL
 
         public static async Task<GenericButtonController> GetSaveButtonController()
         {
-            return new GenericButtonController("Spara", false);
+            return new GenericButtonController("Spara", true);
         }
 
         public static async Task<GenericButtonController> GetSubmitButtonController()
@@ -99,6 +99,18 @@ namespace FormPoC.DAL
                 employeesDTOs.Add(new DropDownItemDTO { Id = employee.Id, Name = (employee.FirstName + " " + employee.LastName)});
             }
             return employeesDTOs;
+        }
+
+        public static async Task<List<DropDownItemDTO>> GetEmployeesFromCompanyId(int companyId)
+        {
+            var employeeList = Employees.Where(e => e.CompanyId == companyId).ToList();
+            var employeeDTOList = new List<DropDownItemDTO>();
+            foreach (var employee in employeeList)
+            {
+                employeeDTOList.Add(new DropDownItemDTO { Id = employee.Id, Name = (employee.FirstName + " " + employee.LastName)});
+            }
+
+            return employeeDTOList;
         }
     }
 }

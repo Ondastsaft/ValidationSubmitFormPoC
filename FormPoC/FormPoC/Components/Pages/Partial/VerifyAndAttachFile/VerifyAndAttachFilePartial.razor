@@ -1,12 +1,12 @@
-﻿<div class="row">
+﻿<div class="row" hidden="@Controller.IsDisabled">
     <div class="col-6">
-        <input type="checkbox" title="@Controller.VerificationCheckBoxTitle" disabled="@Controller.IsDisabled" @bind="Controller.HasVerified"/>
+        <input type="checkbox" title="@Controller.VerificationCheckBoxTitle" @bind="Controller.HasVerified"/>
     </div>
     <div class="col-6">
         <InputFile OnChange="Controller.HandleFileSelected" />
     </div>
     <div>
-        <button class="btn btn-primary" @onclick="@Controller.SaveFileToDestinationAsync" disabled="@(Controller.IsDisabled)">
+        <button class="btn btn-primary" @onclick="@Controller.SaveFileToDestinationAsync" >
             @Controller.SubmitButtonTitle
         </button>
     </div>

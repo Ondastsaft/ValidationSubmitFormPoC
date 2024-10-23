@@ -14,9 +14,9 @@ namespace FormPoC.Components.Pages.Partial.Tab2
     {
         //ToDO Add DisplayEmployeeController
         public DropDownFromListController EmployeeDropDownController { get; set; }
-        public DropDownFromListController CompanyDropDownController { get; set; }
+        public DropDownFromListController CompanyDropDownController { get; set; } 
         public SetValueForParameterController SetWeightController { get; set; }
-        public SetValueForParameterController SetHeightController { get; set; }
+        public SetValueForParameterController SetAltitudeController { get; set; }
         public CheckBoxController ShowDistanceController { get; set; }
         public CheckBoxController ShowWeightController { get; set; }
         public CheckBoxController ShowAltitudeController { get; set; }
@@ -34,7 +34,7 @@ namespace FormPoC.Components.Pages.Partial.Tab2
             EmployeeDropDownController = await Tab2Dal.GetEmployeeDropdownControllerAsync();
             CompanyDropDownController = await Tab2Dal.GetCompanyDropdownControllerAsync();
             SetWeightController = await Tab2Dal.GetSetWeightController();
-            SetHeightController = await Tab2Dal.GetSetHeightController();
+            SetAltitudeController = await Tab2Dal.GetSetHeightController();
             ShowDistanceController = await Tab2Dal.GetShowDistanceController(); 
             ShowWeightController = await Tab2Dal.GetShowWeightController();
             ShowAltitudeController = await Tab2Dal.GetShowAltitudeController();
@@ -44,21 +44,6 @@ namespace FormPoC.Components.Pages.Partial.Tab2
             SaveButtonController = await Tab2Dal.GetSaveButtonController();
             SubmitButtonController = await Tab2Dal.GetSubmitButtonController();
             //SelectDistanceController.ValueHasChanged = await HandleSelectDistanceParameterSet();
-        }
-
-        private async Task HandleSelectDistanceParameterSet()
-        {
-            switch (SelectDistanceRadioButtonGroupController.SelectedValue)
-            {
-                case Tab2DistanceRadioOptions.long_distance:
-                    VerifyAndAttachFileDistanceController.IsDisabled = false;
-                    break;
-
-                default:
-                    VerifyAndAttachFileDistanceController.IsDisabled = true;
-                    VerifyAndAttachFileHeightController.IsDisabled = false;
-                    break;
-            }
         }
     }
 }

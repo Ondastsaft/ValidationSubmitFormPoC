@@ -10,7 +10,7 @@ namespace FormPoC.Components.Pages.Partial.RadioButtonGroup
     public class RadioButtonGroupController<TEnum> where TEnum : Enum
     {
         public Dictionary<TEnum, string> RadioOptions { get; set; } = new Dictionary<TEnum, string>();
-        public EventCallback ValueHasChanged;
+        public EventCallback<bool> ValueHasChanged;
         public bool IsDisabled { get; set; }  = true;
         private TEnum _selectedValue;
         public TEnum SelectedValue
@@ -20,6 +20,7 @@ namespace FormPoC.Components.Pages.Partial.RadioButtonGroup
             {
                 if (!_selectedValue.Equals(value))
                 {
+                    _selectedValue = value;
                     ValueHasChanged.InvokeAsync();
                 }
             }

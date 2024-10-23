@@ -4,7 +4,7 @@
         <label for="value" hidden="@Controller.IsDisabled">@Controller.ParameterName</label>
     </div>
     <div class="col-6">
-        <input id="value" type="text" value="@Controller.ParameterValue" class="form-control" hidden="@Controller.IsDisabled"/>
+        <input id="value" type="text" @bind="Controller.ParameterValue" class="form-control" hidden="@Controller.IsDisabled"/>
     </div>
 </div>
 

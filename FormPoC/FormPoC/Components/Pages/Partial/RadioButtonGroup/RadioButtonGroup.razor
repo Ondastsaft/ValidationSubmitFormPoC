@@ -1,19 +1,20 @@
-﻿@foreach (var option in Controller.RadioOptions)
+﻿@if (!Controller.IsDisabled)
 {
-    <input type="radio"
-           id="@option.Key"
-           @key="option"
-           name="radio_list"
-           value="@option.Key"
-           @onchange="OnValueChanged"
-           checked="@(Controller.SelectedValue.Equals(option.Key))"
-           aria-label="@option.Value"
-           disabled="@Controller.IsDisabled"
-           />
-    <label for="@option.Key">@option.Value</label>
-    <br />
+    @foreach (var option in Controller.RadioOptions)
+    {
+        <input type="radio"
+               id="@option.Key"
+               @key="option"
+               name="radio_list"
+               value="@option.Key"
+               @onchange="OnValueChanged"
+               checked="@(Controller.SelectedValue.Equals(option.Key))"
+               aria-label="@option.Value"
+               hidden="@Controller.IsDisabled"/>
+        <label for="@option.Key">@option.Value</label>
+        <br/>
+    }
 }
-
 @typeparam TEnum where TEnum : Enum
 @code {
     [Parameter, Required]
