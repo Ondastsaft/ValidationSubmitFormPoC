@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FormPoC.Components.Pages.Partial.RadioButtonGroup
 {
-    public class RadioButtonGroupModel<TEnum> where TEnum : Enum
+    public class RadioButtonGroupController<TEnum> where TEnum : Enum
     {
         public Dictionary<TEnum, string> RadioOptions { get; set; } = new Dictionary<TEnum, string>();
         public event Action ValueHasChanged;
@@ -24,7 +24,7 @@ namespace FormPoC.Components.Pages.Partial.RadioButtonGroup
             }
         }
 
-        public RadioButtonGroupModel(Dictionary<TEnum, string> radioOptions)
+        public RadioButtonGroupController(Dictionary<TEnum, string> radioOptions)
         {
             if (CheckDictionary(radioOptions))
             {

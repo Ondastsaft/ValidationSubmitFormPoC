@@ -1,7 +1,8 @@
-﻿<label for="dropdown">@controller.DropDownLabel</label>
-<select id="dropdown" disabled="@controller.IsDisabled" @bind="controller.SelectedItem">
-    <option value="">@controller.OptionLabel</option>
-    @foreach (var option in controller.DropDownList)
+﻿<label for="dropdown">@Controller.DropDownLabel</label>
+<select id="dropdown" disabled="@Controller.IsDisabled">
+    <option value="">@Controller.OptionLabel</option>
+    @if(Controller.DropDownList != null)
+    @foreach (var option in Controller.DropDownList)
     {
         <option key="@option.Id" value="@option.Id">@option.Name</option>
     }
@@ -11,5 +12,5 @@
 {
     [Parameter]
     [Required]
-    public DropDownFromListController controller {get; set; }
+    public DropDownFromListController Controller {get; set; }
 }

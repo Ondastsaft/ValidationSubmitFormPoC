@@ -2,7 +2,7 @@
 
 namespace FormPoC.Components.Pages.Partial.DropDown
 {
-    public class DropDownFromListController(List<DropDownItemDTO> dropDownList, bool isDisabled, string dropDownLabel, string optionTitle)
+    public class DropDownFromListController(List<DropDownItemDTO> dropDownList, string dropDownLabel, string optionTitle)
     {
         public List<DropDownItemDTO> DropDownList { get; set; } = dropDownList;
         private DropDownItemDTO selectedItem;
@@ -18,7 +18,7 @@ namespace FormPoC.Components.Pages.Partial.DropDown
                 }
             }
         } 
-        public bool IsDisabled { get; set; } = isDisabled;
+        public bool IsDisabled { get; set; } = true;
         public string DropDownLabel { get; set; } = dropDownLabel;
         public string OptionLabel { get; set; } = optionTitle;
         public EventCallback<bool> OnDropDownSelect;

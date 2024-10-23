@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components.Forms;
 
 namespace FormPoC.Components.Pages.Partial.VerifyAndAttachFile
 {
-    public class VerifyAndAttachFileController(string verificationCheckBoxTitle, string submitButtonTitle, HttpClient _client, string _uploadUri, string _fileName)
+    public class VerifyAndAttachFileController(string verificationCheckBoxTitle, string submitButtonTitle)
     {
         public int Id { get; set; }
 
@@ -24,9 +24,9 @@ namespace FormPoC.Components.Pages.Partial.VerifyAndAttachFile
         public string SubmitButtonTitle { get; private set; } = submitButtonTitle;
 
         //File upload properties
-        private readonly string uploadUri = _uploadUri;
-        private readonly string fileName = _fileName;
-        HttpClient httpClient = _client;
+        private readonly string uploadUri;
+        private readonly string fileName;
+        HttpClient httpClient;
         public IBrowserFile SelectedFile { get; private set; }
 
         // Events
