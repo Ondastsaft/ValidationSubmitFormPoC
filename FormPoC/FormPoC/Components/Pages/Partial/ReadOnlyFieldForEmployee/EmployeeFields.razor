@@ -1,0 +1,22 @@
+﻿<div class="row">
+    <div class="col-6">
+        <label for="employeeFirstName">First Name</label>
+        <input id="employeeFirstName" type="text" class="form-control" @bind="Controller.SelectedEmployee.FirstName" readonly />
+    </div>
+    <div class="col-6">
+        <label for="employeeLastName">Last Name</label>
+        <input id="employeeLastName" type="text" class="form-control" @bind="Controller.SelectedEmployee.LastName" readonly />
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <label for="employeeRole">Role</label>
+        <input id="employeeRole" type="text" class="form-control" @bind="Controller.SelectedEmployee.Role" readonly />
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public EmployeeController Controller { get; set; }
+}

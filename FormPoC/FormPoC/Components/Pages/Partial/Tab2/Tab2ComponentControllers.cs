@@ -4,6 +4,7 @@ using FormPoC.Components.Pages.Partial.Checkbox;
 using FormPoC.Components.Pages.Partial.DropDown;
 using FormPoC.Components.Pages.Partial.ParameterWithValueInputfield;
 using FormPoC.Components.Pages.Partial.RadioButtonGroup;
+using FormPoC.Components.Pages.Partial.ReadOnlyFieldForEmployee;
 using FormPoC.Components.Pages.Partial.VerifyAndAttachFile;
 using FormPoC.DAL;
 using Microsoft.AspNetCore.Components;
@@ -13,6 +14,7 @@ namespace FormPoC.Components.Pages.Partial.Tab2
     public class Tab2ComponentControllers
     {
         //ToDO Add DisplayEmployeeController
+        public EmployeeController EmployeeController { get; set; } 
         public DropDownFromListController EmployeeDropDownController { get; set; }
         public DropDownFromListController CompanyDropDownController { get; set; } 
         public SetValueForParameterController SetWeightController { get; set; }
@@ -43,6 +45,7 @@ namespace FormPoC.Components.Pages.Partial.Tab2
             VerifyAndAttachFileHeightController = await Tab2Dal.GetVerifyAndAttachHeightController();
             SaveButtonController = await Tab2Dal.GetSaveButtonController();
             SubmitButtonController = await Tab2Dal.GetSubmitButtonController();
+            EmployeeController =  new EmployeeController();
             //SelectDistanceController.ValueHasChanged = await HandleSelectDistanceParameterSet();
         }
     }

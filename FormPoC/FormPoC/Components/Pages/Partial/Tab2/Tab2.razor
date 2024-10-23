@@ -69,6 +69,12 @@
         <GenericButton ButtonController="Controller.ComponentControllers.SubmitButtonController"></GenericButton>
     </div>
 </div>
+<div class="row">
+    <div class="col-12">
+        <!-- Pass EmployeeController to EmployeeDetails -->
+        <EmployeeFields Controller="Controller.ComponentControllers.EmployeeController"></EmployeeFields>
+    </div>
+</div>
 
 @code {
     [Parameter]
@@ -89,5 +95,6 @@
         Controller.ComponentControllers.SelectDistanceRadioButtonGroupController.ValueHasChanged = EventCallback.Factory.Create<bool>(this, Controller.HandleSelectDistanceParameterSet);
         Controller.ComponentControllers.SetAltitudeController.OnValueSet = EventCallback.Factory.Create<bool>(this, Controller.HandleSetHeightInput);
         Controller.ComponentControllers.CompanyDropDownController.OnDropDownSelect = EventCallback.Factory.Create<bool>(this, Controller.HandleCompanySelected);
+        Controller.ComponentControllers.EmployeeDropDownController.OnDropDownSelect = EventCallback.Factory.Create<bool>(this, Controller.HandleEmployeeSelected);
     }
 }
