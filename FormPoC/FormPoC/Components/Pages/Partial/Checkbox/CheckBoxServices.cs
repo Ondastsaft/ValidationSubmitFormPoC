@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FormPageLibrary.ComponentModels
+namespace FormPoC.Components.Pages.Partial.Checkbox
 {
     public static class CheckBoxServices
     {
@@ -25,7 +25,7 @@ namespace FormPageLibrary.ComponentModels
         {
             return _checkboxValueMap.TryGetValue(checkboxLabel, out var isVisible) && isVisible;
         }
-        public static  List<CheckBoxModel> GetWeightDistanceCheckBoxes()
+        public static List<CheckBoxModel> GetWeightDistanceCheckBoxes()
         {
             return new List<CheckBoxModel>
             {

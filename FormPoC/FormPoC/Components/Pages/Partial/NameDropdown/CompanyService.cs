@@ -1,8 +1,7 @@
-﻿using formtest.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace formtest.Services
+namespace FormPoC.Components.Pages.Partial.NameDropdown
 {
     public class CompanyService
     {

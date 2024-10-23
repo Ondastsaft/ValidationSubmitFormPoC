@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FormPageLibrary
+namespace FormPoC.Components.Pages.Partial.ParameterWithValueInputfield
 {
     public class ParameterWithValue
     {
