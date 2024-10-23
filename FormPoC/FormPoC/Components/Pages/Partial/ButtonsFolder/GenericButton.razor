@@ -1,0 +1,11 @@
+﻿<button @onclick="OnButtonClick" disabled="@ButtonController.IsDisabled">@ButtonController.ButtonText</button>
+
+@code {
+    [Parameter, Required]
+    public GenericButtonController ButtonController { get; set; }
+
+    private void OnButtonClick()
+    {
+        ButtonController.IsClicked.InvokeAsync();
+    }
+}

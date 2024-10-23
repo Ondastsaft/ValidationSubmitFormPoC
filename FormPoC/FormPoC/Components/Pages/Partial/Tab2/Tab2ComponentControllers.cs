@@ -37,7 +37,7 @@ namespace FormPoC.Components.Pages.Partial.Tab2
             SelectDistanceController = await Tab2Dal.GetSelectDistanceController();
             VerifyAndAttachFileDistanceController = await Tab2Dal.GetVerifyAndAttachFileDistanceController();
             VerifyAndAttachFileHeightController = await Tab2Dal.GetVerifyAndAttachHeightController();
-            SelectDistanceController.ValueHasChanged = await HandleSelectDistanceParameterSet()
+            //SelectDistanceController.ValueHasChanged = await HandleSelectDistanceParameterSet();
         }
 
         private async Task HandleSelectDistanceParameterSet()
