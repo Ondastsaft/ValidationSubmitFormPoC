@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FormPoC.Components.Pages.FormPoc.Partial.FormPocTab7
+namespace FormPoC.Components.Pages.Partial.RadioButtonGroup
 {
     public class RadioButtonGroupModel<TEnum> where TEnum : Enum
     {

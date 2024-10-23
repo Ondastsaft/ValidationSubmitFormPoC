@@ -32,7 +32,7 @@ namespace FormPoC.Components.Pages.Partial.VerifyAndAttachFile
         // Events
         public EventCallback<bool> FileSubmitted;
         public Func<Exception, Task> OnError { get; set; } = async (ex) => await Task.CompletedTask;
-        //TODo AddValidation for model, parentmodel and file
+        //TODo Add validation for model, parentmodel and file
 
         //Methods
         public async Task SaveFileToDestinationAsync()
