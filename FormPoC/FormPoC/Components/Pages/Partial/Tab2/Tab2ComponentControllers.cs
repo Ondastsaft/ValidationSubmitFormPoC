@@ -1,4 +1,5 @@
 ﻿
+using FormPoC.Components.Pages.Partial.ButtonsFolder;
 using FormPoC.Components.Pages.Partial.Checkbox;
 using FormPoC.Components.Pages.Partial.DropDown;
 using FormPoC.Components.Pages.Partial.ParameterWithValueInputfield;
@@ -23,7 +24,9 @@ namespace FormPoC.Components.Pages.Partial.Tab2
         //ToDo add input field for Verify and attach file distance component
         public VerifyAndAttachFileController VerifyAndAttachFileHeightController { get; set; }
         //Todo Add save button
+        public GenericButtonController SaveButtonController { get; set; }
         //Todo add submit button
+        public GenericButtonController SubmitButtonController { get; set; }
 
         public async Task InitializeControllersAsync()
         {
@@ -37,6 +40,8 @@ namespace FormPoC.Components.Pages.Partial.Tab2
             SelectDistanceController = await Tab2Dal.GetSelectDistanceController();
             VerifyAndAttachFileDistanceController = await Tab2Dal.GetVerifyAndAttachFileDistanceController();
             VerifyAndAttachFileHeightController = await Tab2Dal.GetVerifyAndAttachHeightController();
+            SaveButtonController = await Tab2Dal.GetSaveButtonController();
+            SubmitButtonController = await Tab2Dal.GetSubmitButtonController();
             //SelectDistanceController.ValueHasChanged = await HandleSelectDistanceParameterSet();
         }
 

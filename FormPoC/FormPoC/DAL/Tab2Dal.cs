@@ -1,4 +1,5 @@
-﻿using FormPoC.Components.Pages.Partial.Checkbox;
+﻿using FormPoC.Components.Pages.Partial.ButtonsFolder;
+using FormPoC.Components.Pages.Partial.Checkbox;
 using FormPoC.Components.Pages.Partial.DropDown;
 using FormPoC.Components.Pages.Partial.ParameterWithValueInputfield;
 using FormPoC.Components.Pages.Partial.RadioButtonGroup;
@@ -69,6 +70,16 @@ namespace FormPoC.DAL
         public static async Task<VerifyAndAttachFileController> GetVerifyAndAttachHeightController()
         {
             return new VerifyAndAttachFileController("Bekräfta höjd", "Bifoga fil");
+        }
+
+        public static async Task<GenericButtonController> GetSaveButtonController()
+        {
+            return new GenericButtonController("Spara", false);
+        }
+
+        public static async Task<GenericButtonController> GetSubmitButtonController()
+        {
+            return new GenericButtonController("Skicka", true);
         }
 
         public static async Task<List<DropDownItemDTO>> GetCompaniesAsDropDownItemDTOs()
