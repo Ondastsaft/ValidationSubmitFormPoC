@@ -11,6 +11,7 @@ namespace FormPoC.Components.Pages.Partial.RadioButtonGroup
     {
         public Dictionary<TEnum, string> RadioOptions { get; set; } = new Dictionary<TEnum, string>();
         public EventCallback ValueHasChanged;
+        public bool IsDisabled { get; set; }  = true;
         private TEnum _selectedValue;
         public TEnum SelectedValue
         {

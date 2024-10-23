@@ -26,11 +26,11 @@ namespace FormPoC.DAL
         public static async Task<DropDownFromListController> GetEmployeeDropdownControllerAsync()
         {
             var companies = await GetCompaniesAsDropDownItemDTOs();
-            return new DropDownFromListController(new List<DropDownItemDTO>(), "Visa anställda", "Välj en anställd"){};
+            return new DropDownFromListController(new List<DropDownItemDTO>(), "Visa anställda", "Välj en anställd");
         }
         public static async Task<DropDownFromListController> GetCompanyDropdownControllerAsync( )
         {
-            return new DropDownFromListController(new List<DropDownItemDTO>(), "Visa företag", "Välj ett företag");
+            return new DropDownFromListController(new List<DropDownItemDTO>(), "Visa företag", "Välj ett företag"){IsDisabled = false};
         }
 
         public static async Task<SetValueForParameterController> GetSetWeightController()
@@ -43,17 +43,17 @@ namespace FormPoC.DAL
         }
         public static async Task<CheckBoxController> GetShowDistanceController()
         {
-            return new CheckBoxController("Visa avstånd");
+            return new CheckBoxController("Visa avstånd"){IsDisabled = false};
         }
         public static async Task<CheckBoxController> GetShowWeightController()
         {
-            return new CheckBoxController("Visa vikt");
+            return new CheckBoxController("Visa vikt"){IsDisabled = false};
         }        
         public static async Task<CheckBoxController> GetShowAltitudeController()
         {
-            return new CheckBoxController("Visa höjd");
+            return new CheckBoxController("Visa höjd"){IsDisabled = false};
         }
-        public static async Task<RadioButtonGroupController<Tab2DistanceRadioOptions>> GetSelectDistanceController()
+        public static async Task<RadioButtonGroupController<Tab2DistanceRadioOptions>> GetSelectDistanceRadioButtonController()
         {
             var dictionary = new Dictionary<Tab2DistanceRadioOptions, string>()
             {
@@ -61,7 +61,7 @@ namespace FormPoC.DAL
                 { Tab2DistanceRadioOptions.medium_distance, "> 100km" },
                 { Tab2DistanceRadioOptions.long_distance, "> 10 000km" }
             };
-            return new RadioButtonGroupController<Tab2DistanceRadioOptions>(dictionary);
+            return new RadioButtonGroupController<Tab2DistanceRadioOptions>(dictionary){IsDisabled = false};
         }
         public static async Task<VerifyAndAttachFileController> GetVerifyAndAttachFileDistanceController()
         {

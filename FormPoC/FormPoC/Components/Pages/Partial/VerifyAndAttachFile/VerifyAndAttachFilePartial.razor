@@ -1,13 +1,13 @@
 ﻿<div class="row">
     <div class="col-6">
-        <input type="checkbox" title="@controller.VerificationCheckBoxTitle" disabled="@controller.IsDisabled" @bind="controller.HasVerified"/>
+        <input type="checkbox" title="@Controller.VerificationCheckBoxTitle" disabled="@Controller.IsDisabled" @bind="Controller.HasVerified"/>
     </div>
     <div class="col-6">
-        <InputFile OnChange="controller.HandleFileSelected" />
+        <InputFile OnChange="Controller.HandleFileSelected" />
     </div>
     <div>
-        <button class="btn btn-primary" @onclick="@controller.SaveFileToDestinationAsync" disabled="@(!controller.HasVerified)">
-            @controller.SubmitButtonTitle
+        <button class="btn btn-primary" @onclick="@Controller.SaveFileToDestinationAsync" disabled="@(Controller.IsDisabled)">
+            @Controller.SubmitButtonTitle
         </button>
     </div>
 </div>
@@ -15,5 +15,5 @@
 @code {
     [Parameter]
     [Required]
-    public VerifyAndAttachFileController controller { get; set; }
+    public VerifyAndAttachFileController Controller { get; set; }
 }

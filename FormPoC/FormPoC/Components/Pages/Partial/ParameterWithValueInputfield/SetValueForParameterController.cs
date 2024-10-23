@@ -10,5 +10,6 @@ namespace FormPoC.Components.Pages.Partial.ParameterWithValueInputfield
     {
         public string ParameterName { get; set; } = parameterName;
         public string ParameterValue { get; set; } = parameterValue;
+        public bool IsDisabled { get; set; }  = true;
     }
 }

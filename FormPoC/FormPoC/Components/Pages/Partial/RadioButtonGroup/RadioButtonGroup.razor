@@ -7,8 +7,9 @@
            value="@option.Key"
            @onchange="OnValueChanged"
            checked="@(Controller.SelectedValue.Equals(option.Key))"
-           aria-label="@option.Value" /> <!-- Using the dictionary string for aria-label -->
-
+           aria-label="@option.Value"
+           disabled="@Controller.IsDisabled"
+           />
     <label for="@option.Key">@option.Value</label>
     <br />
 }

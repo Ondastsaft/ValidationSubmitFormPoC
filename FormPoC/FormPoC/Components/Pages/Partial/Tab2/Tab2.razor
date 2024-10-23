@@ -6,7 +6,7 @@
             @* DisplayEmployee *@
         </div>
         <div class="col-2">
-            <DropDownFromList Controller="Controller.ComponentControllers.CompanyDropDownController"></DropDownFromList>
+            <DropDownFromList Controller="Controller.ComponentControllers.CompanyDropDownController" ></DropDownFromList>
         </div>
         <div class="col-2"><DropDownFromList Controller="Controller.ComponentControllers.EmployeeDropDownController"></DropDownFromList></div>
     </div>
@@ -17,12 +17,12 @@
     <div class="col-4">
         <div class="row">
             <div class="col">
-                <RadioButtonGroup TEnum="Tab2DistanceRadioOptions" Controller="Controller.ComponentControllers.SelectDistanceController"></RadioButtonGroup>
+                <RadioButtonGroup TEnum="Tab2DistanceRadioOptions" Controller="Controller.ComponentControllers.SelectDistanceRadioButtonGroupController"></RadioButtonGroup>
             </div>
             <div class="col">
                 <div class="row">
                     <div class="col">
-                        <CheckBoxComponent Controller="Controller.ComponentControllers.ShowAltitudeController"></CheckBoxComponent>
+                        <CheckBoxComponent Controller="Controller.ComponentControllers.ShowAltitudeController" ></CheckBoxComponent>
                     </div>
                 </div>
                 <div class="row">
@@ -32,7 +32,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <CheckBoxComponent Controller="Controller.ComponentControllers.ShowAltitudeController"></CheckBoxComponent>
+                        <CheckBoxComponent Controller="Controller.ComponentControllers.ShowDistanceController"></CheckBoxComponent>
                     </div>
                 </div>
             </div>
@@ -55,10 +55,10 @@
 </div>
 <div class="row">
     <div class="col-4">
-        <VerifyAndAttachFilePartial controller="Controller.ComponentControllers.VerifyAndAttachFileDistanceController"></VerifyAndAttachFilePartial>
+        <VerifyAndAttachFilePartial Controller="Controller.ComponentControllers.VerifyAndAttachFileDistanceController"></VerifyAndAttachFilePartial>
     </div>
     <div class="col-4">
-        <VerifyAndAttachFilePartial controller="Controller.ComponentControllers.VerifyAndAttachFileHeightController"></VerifyAndAttachFilePartial>
+        <VerifyAndAttachFilePartial Controller="Controller.ComponentControllers.VerifyAndAttachFileHeightController"></VerifyAndAttachFilePartial>
     </div>
 </div>
 <div class="row">
@@ -81,6 +81,8 @@
                 ComponentControllers = new Tab2ComponentControllers()
             };
         await Controller.ComponentControllers.InitializeControllersAsync();
+
+        Controller.ComponentControllers.ShowWeightController.IsCheckedChanged = EventCallback.Factory.Create<bool>(this, Controller.HandleShowWeightChecked);
     }
 
 

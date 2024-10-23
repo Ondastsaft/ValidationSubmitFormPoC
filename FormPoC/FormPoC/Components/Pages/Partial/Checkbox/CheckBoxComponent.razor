@@ -1,11 +1,10 @@
 ﻿@rendermode InteractiveServer
 
 <div>
-    <input type="checkbox" @bind="Controller.IsChecked" @attributes="AdditionalAttributes" />
+    <input type="checkbox" disabled="@Controller.IsDisabled" @bind="Controller.IsChecked"/>
     @Controller.Label
 </div>
 
 @code {
     [Parameter] public CheckBoxController Controller { get; set; }
-    [Parameter(CaptureUnmatchedValues = true)] public Dictionary<string, object> AdditionalAttributes { get; set; }
 }

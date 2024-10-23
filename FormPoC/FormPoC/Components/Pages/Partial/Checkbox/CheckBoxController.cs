@@ -11,6 +11,7 @@ namespace FormPoC.Components.Pages.Partial.Checkbox
     {
         public int Id { get; set; }
         public string Label { get; set; } = label;
+        public bool IsDisabled { get; set; }  = true;
         private bool isChecked { get; set; }
         public bool IsChecked
         {
@@ -22,5 +23,6 @@ namespace FormPoC.Components.Pages.Partial.Checkbox
             }
         }
         public EventCallback<bool> IsCheckedChanged { get; set; }
+
     }
 }
