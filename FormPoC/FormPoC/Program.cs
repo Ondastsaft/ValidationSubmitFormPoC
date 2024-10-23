@@ -1,4 +1,5 @@
 using FormPoC.Components;
+using formtest.Services;
 
 namespace FormPoC
 {
@@ -11,6 +12,7 @@ namespace FormPoC
             // Add services to the container.
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
+            builder.Services.AddScoped<CompanyService>();
 
             var app = builder.Build();
 
