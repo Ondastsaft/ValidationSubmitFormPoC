@@ -1,13 +1,15 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
+﻿using FormPoC.Components.Pages.Partial.DropDown;
 
-//namespace FormPageLibrary.ComponentModels
-//{
-//    public class TabService
-//    {
+namespace FormPoC.Components.Pages.Partial.Tab2
+{
+    public class Tab2Controller
+    {
+        public DropDownFromListController NameDropDownController { get; set; }
+        public DropDownFromListController CompanyDropDownController { get; set; }
+    }
+}
+
+
 //        public Tab3Model GetTab3Model()
 //        {
 //            return new Tab3Model
@@ -30,5 +32,14 @@
 //                }
 //            };
 //        }
-//    }
+
+//public RadioButtonGroupModel<Tab7DistanceRadioOptions> Tab7DistanceRadioButtonGroupModel { get; set; }
+
+//public Tab7Model()
+//{
+//    var radioButtonDictionary = DAL.Tab7DistanceRadioGroupDAL.GetDistanceRadioOptions();
+//    Tab7DistanceRadioButtonGroupModel = new RadioButtonGroupModel<Tab7DistanceRadioOptions>(radioButtonDictionary)
+//    {
+//        SelectedValue = Tab7DistanceRadioOptions.short_distance
+//    };
 //}

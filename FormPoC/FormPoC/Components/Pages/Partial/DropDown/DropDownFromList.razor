@@ -1,13 +1,14 @@
-﻿<label for="companySelect">Välj Företag</label>
-<select@*  @onchange="@(e => controller.SelectedItem(e.Value))" *@>
-    <option value="">Välj ett företag</option>
-    @foreach (var company in controller.DropDownList)
+﻿<label for="dropdown">@controller.DropDownLabel</label>
+<select id="dropdown" disabled="@controller.IsDisabled" @bind="controller.SelectedItem">
+    <option value="">@controller.OptionLabel</option>
+    @foreach (var option in controller.DropDownList)
     {
-@*         <option value="@company.Id">@company.Name</option> *@
+        <option key="@option.Id" value="@option.Id">@option.Name</option>
     }
 </select>
 
-@code {
+@code 
+{
     [Parameter]
     [Required]
     public DropDownFromListController controller {get; set; }
