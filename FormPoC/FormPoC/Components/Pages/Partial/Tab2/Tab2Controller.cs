@@ -6,9 +6,9 @@ namespace FormPoC.Components.Pages.Partial.Tab2
 {
     public class Tab2Controller
     {
-        public bool IsDisabled { get; set; }  = true;
+        public bool IsDisabled { get; set; } = true;
         public Tab2ComponentControllers ComponentControllers { get; set; }
-       
+
         public async Task HandleEmployeeSelected()
         {
             var selectedEmployeeId = ComponentControllers.EmployeeDropDownController.SelectedItem.Id;
@@ -39,7 +39,7 @@ namespace FormPoC.Components.Pages.Partial.Tab2
                     break;
 
                 case Tab2DistanceRadioOptions.medium_distance:
-                    case Tab2DistanceRadioOptions.short_distance:
+                case Tab2DistanceRadioOptions.short_distance:
                     ComponentControllers.VerifyAndAttachFileDistanceController.IsDisabled = true;
                     break;
 
@@ -52,8 +52,8 @@ namespace FormPoC.Components.Pages.Partial.Tab2
 
         public async Task HandleSetHeightInput()
         {
-            int value = int.TryParse(ComponentControllers.SetAltitudeController.ParameterValue, out var result) 
-                ? result 
+            int value = int.TryParse(ComponentControllers.SetAltitudeController.ParameterValue, out var result)
+                ? result
                 : 0;
             if (value > 1000)
             {
@@ -65,10 +65,12 @@ namespace FormPoC.Components.Pages.Partial.Tab2
             }
         }
 
+        //Todo Reset the employee dropdown to display label instead of the latest selected employee when new company is selected
         public async Task HandleCompanySelected()
         {
             ComponentControllers.EmployeeDropDownController.DropDownList = await Tab2Dal.GetEmployeesFromCompanyId(ComponentControllers.CompanyDropDownController.SelectedItem.Id);
             ComponentControllers.EmployeeDropDownController.IsDisabled = false;
+            ComponentControllers.EmployeeDropDownController.SelectedItem = null;
             ComponentControllers.SaveButtonController.IsDisabled = false;
         }
     }
