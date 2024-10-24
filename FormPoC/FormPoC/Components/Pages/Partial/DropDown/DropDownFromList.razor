@@ -1,22 +1,20 @@
 ﻿<label for="dropdown">@Controller.DropDownLabel</label>
 <select id="dropdown" @onchange="@(e => SetSelectedItem(e.Value))" disabled="@Controller.IsDisabled">
     <option value="">@Controller.OptionLabel</option>
-    @if(Controller.DropDownList != null)
-    @foreach (var option in Controller.DropDownList)
+    @if (Controller.DropDownList != null)
+        @foreach (var option in Controller.DropDownList)
     {
         <option key="@option.Id" value="@option.Id">@option.Name</option>
     }
 </select>
 
-@code 
+@code
 {
-    [Parameter]
-    [Required]
-    public DropDownFromListController Controller {get; set; }
+    [Parameter] [Required] public DropDownFromListController Controller { get; set; }
 
     private async Task SetSelectedItem(object selectedValue)
     {
-        if (int.TryParse(selectedValue.ToString(), out int selectedItemId))
+        if (int.TryParse(selectedValue.ToString(), out var selectedItemId))
         {
             Controller.SelectedItem = Controller.DropDownList?.Where(d => d.Id == selectedItemId).FirstOrDefault() ?? new DropDownItemDTO();
         }

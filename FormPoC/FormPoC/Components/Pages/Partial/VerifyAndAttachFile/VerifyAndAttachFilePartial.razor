@@ -1,19 +1,18 @@
 ﻿<div class="row" hidden="@Controller.IsDisabled">
     <div class="col-6">
-        <input type="checkbox" title="@Controller.VerificationCheckBoxTitle" @bind="Controller.HasVerified"/>
+        <label for="confirmbox">@Controller.VerificationCheckBoxTitle</label>
+        <input type="checkbox" id="confirmbox" title="@Controller.VerificationCheckBoxTitle" @bind="Controller.HasVerified">
     </div>
-    <div class="col-6">
-        <InputFile OnChange="Controller.HandleFileSelected" />
+    <div class="col-2">
+        <InputFile OnChange="Controller.HandleFileSelected"/>
     </div>
-    <div>
-        <button class="btn btn-primary" @onclick="@Controller.SaveFileToDestinationAsync" >
+    <div class="col-4">
+        <button class="btn btn-primary" @onclick="@Controller.SaveFileToDestinationAsync">
             @Controller.SubmitButtonTitle
         </button>
     </div>
 </div>
 
 @code {
-    [Parameter]
-    [Required]
-    public VerifyAndAttachFileController Controller { get; set; }
+    [Parameter] [Required] public VerifyAndAttachFileController Controller { get; set; }
 }

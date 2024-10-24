@@ -1,38 +1,37 @@
 ﻿<div class="row">
     <div class="col-6">
         <label for="employeeFirstName">Förnamn</label>
-        <input id="employeeFirstName" type="text" class="form-control" @bind="Controller.SelectedEmployee.FirstName" readonly />
+        <input id="employeeFirstName" type="text" class="form-control" @bind="Controller.SelectedEmployee.FirstName" readonly/>
     </div>
     <div class="col-6">
         <label for="employeeLastName">Efternamn</label>
-        <input id="employeeLastName" type="text" class="form-control" @bind="Controller.SelectedEmployee.LastName" readonly />
+        <input id="employeeLastName" type="text" class="form-control" @bind="Controller.SelectedEmployee.LastName" readonly/>
     </div>
 </div>
 
 <div class="row">
     <div class="col-6">
         <label for="employeeRole">Gatuadress</label>
-        <input id="employeeRole" type="text" class="form-control" @bind="Controller.SelectedEmployee.StreetAdress" readonly />
+        <input id="employeeRole" type="text" class="form-control" @bind="Controller.SelectedEmployee.StreetAdress" readonly/>
     </div>
     <div class="col-6">
         <label for="employeeRole">Roll</label>
-        <input id="employeeRole" type="text" class="form-control" @bind="Controller.SelectedEmployee.Role" readonly />
+        <input id="employeeRole" type="text" class="form-control" @bind="Controller.SelectedEmployee.Role" readonly/>
     </div>
 </div>
 
 <div class="row">
     <div class="col-8">
         <label for="employeeRole">Postort</label>
-        <input id="employeeRole" type="text" class="form-control" @bind="Controller.SelectedEmployee.City" readonly />
+        <input id="employeeRole" type="text" class="form-control" @bind="Controller.SelectedEmployee.City" readonly/>
     </div>
     <div class="col-4">
         <label for="employeeRole">Postnummer</label>
-        <input id="employeeRole" type="text" class="form-control" @bind="Controller.SelectedEmployee.PostalCode" readonly disabled="" />
+        <input id="employeeRole" type="text" class="form-control" @bind="Controller.SelectedEmployee.PostalCode" readonly disabled=""/>
     </div>
 </div>
 
 
 @code {
-    [Parameter]
-    public EmployeeController Controller { get; set; }
+    [Parameter] public EmployeeController Controller { get; set; }
 }

@@ -12,28 +12,28 @@ public static class Tab2Dal
 {
     public static List<Company> Companies = new()
     {
-        new Company() { Id = 1, Name = "Företag 1" },
-        new Company() { Id = 2, Name = "Företag 2" }
+        new Company { Id = 1, Name = "Företag 1" },
+        new Company { Id = 2, Name = "Företag 2" }
     };
 
     public static List<Employee> Employees = new()
     {
-        new()
+        new Employee
         {
             Id = 1, FirstName = "Oscar", LastName = "Karlsson", Role = "Utvecklare", CompanyId = 1,
             StreetAdress = "Storgatan 12", City = "Stockholm", PostalCode = "111 22"
         },
-        new()
+        new Employee
         {
             Id = 2, FirstName = "Anna", LastName = "Svensson", Role = "Designer", CompanyId = 1,
             StreetAdress = "Sveavägen 45", City = "Stockholm", PostalCode = "113 52"
         },
-        new()
+        new Employee
         {
             Id = 3, FirstName = "Erik", LastName = "Johansson", Role = "Projektledare", CompanyId = 2,
             StreetAdress = "Västra Hamngatan 7", City = "Göteborg", PostalCode = "411 17"
         },
-        new()
+        new Employee
         {
             Id = 4, FirstName = "Maria", LastName = "Nilsson", Role = "QA Ingenjör", CompanyId = 2,
             StreetAdress = "Lilla Bommen 4", City = "Göteborg", PostalCode = "411 04"
@@ -81,7 +81,7 @@ public static class Tab2Dal
     public static async Task<RadioButtonGroupController<Tab2DistanceRadioOptions>>
         GetSelectDistanceRadioButtonController()
     {
-        var dictionary = new Dictionary<Tab2DistanceRadioOptions, string>()
+        var dictionary = new Dictionary<Tab2DistanceRadioOptions, string>
         {
             { Tab2DistanceRadioOptions.short_distance, "< 100km" },
             { Tab2DistanceRadioOptions.medium_distance, "> 100km" },

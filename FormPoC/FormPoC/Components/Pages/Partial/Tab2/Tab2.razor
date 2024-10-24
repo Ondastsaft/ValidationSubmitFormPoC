@@ -11,7 +11,7 @@
                     <DropDownFromList Controller="Controller.ComponentControllers.CompanyDropDownController"></DropDownFromList>
                 </div>
             </div>
-            <div class="col">
+            <div class="col mt-3">
                 <DropDownFromList Controller="Controller.ComponentControllers.EmployeeDropDownController"></DropDownFromList>
             </div>
         </div>
@@ -52,7 +52,7 @@
                 <SetValueForParameter Controller="Controller.ComponentControllers.SetWeightController"></SetValueForParameter>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-3">
             <div class="col">
                 <SetValueForParameter Controller="Controller.ComponentControllers.SetAltitudeController"></SetValueForParameter>
             </div>
@@ -60,10 +60,10 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-4">
+    <div class="col-6 m-3">
         <VerifyAndAttachFilePartial Controller="Controller.ComponentControllers.VerifyAndAttachFileDistanceController"></VerifyAndAttachFilePartial>
     </div>
-    <div class="col-4">
+    <div class="col-6 m-3">
         <VerifyAndAttachFilePartial Controller="Controller.ComponentControllers.VerifyAndAttachFileHeightController"></VerifyAndAttachFilePartial>
     </div>
 </div>
@@ -77,13 +77,10 @@
 </div>
 
 @code {
-    [Parameter]
-    [Required]
-    public Tab2Controller Controller { get; set; }
+    [Parameter] [Required] public Tab2Controller Controller { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-
         await Controller.ComponentControllers.InitializeControllersAsync();
 
         Controller.ComponentControllers.ShowWeightController.IsCheckedChanged = EventCallback.Factory.Create<bool>(this, Controller.HandleShowWeightChecked);
@@ -94,5 +91,6 @@
         Controller.ComponentControllers.CompanyDropDownController.OnDropDownSelect = EventCallback.Factory.Create<bool>(this, Controller.HandleCompanySelected);
         Controller.ComponentControllers.EmployeeDropDownController.OnDropDownSelect = EventCallback.Factory.Create<bool>(this, Controller.HandleEmployeeSelected);
     }
+
     //Todo Add component for input field for >10k km attach file component (VerifyAndAttachFileDistanceController)
 }

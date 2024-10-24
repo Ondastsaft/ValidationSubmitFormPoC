@@ -1,54 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 
-namespace FormPoC.Components.Pages.Partial.RadioButtonGroup
+namespace FormPoC.Components.Pages.Partial.RadioButtonGroup;
+
+public class RadioButtonGroupController<TEnum> where TEnum : Enum
 {
-    public class RadioButtonGroupController<TEnum> where TEnum : Enum
+    private TEnum _selectedValue;
+    public EventCallback<bool> ValueHasChanged;
+
+    public RadioButtonGroupController(Dictionary<TEnum, string> radioOptions)
     {
-        public Dictionary<TEnum, string> RadioOptions { get; set; } = new Dictionary<TEnum, string>();
-        public EventCallback<bool> ValueHasChanged;
-        public bool IsDisabled { get; set; }  = true;
-        private TEnum _selectedValue;
-        public TEnum SelectedValue
-        {
-            get => _selectedValue;
-            set
-            {
-                if (!_selectedValue.Equals(value))
-                {
-                    _selectedValue = value;
-                    ValueHasChanged.InvokeAsync();
-                }
-            }
-        }
+        if (CheckDictionary(radioOptions))
+            RadioOptions = radioOptions;
+        else
+            throw new ArgumentException("All options not represented in dictionary");
+    }
 
-        public RadioButtonGroupController(Dictionary<TEnum, string> radioOptions)
-        {
-            if (CheckDictionary(radioOptions))
-            {
-                RadioOptions = radioOptions;
-            }
-            else
-            {
-                throw new ArgumentException("All options not represented in dictionary");
-            }
-        }
+    public Dictionary<TEnum, string> RadioOptions { get; set; } = new();
+    public bool IsDisabled { get; set; } = true;
 
-        private bool CheckDictionary(Dictionary<TEnum, string> radioOptions)
+    public TEnum SelectedValue
+    {
+        get => _selectedValue;
+        set
         {
-            var enumValues = Enum.GetValues(typeof(TEnum)).Cast<TEnum>();
-            foreach (var value in enumValues)
+            if (!_selectedValue.Equals(value))
             {
-                if (!radioOptions.ContainsKey(value))
-                {
-                    return false;
-                }
+                _selectedValue = value;
+                ValueHasChanged.InvokeAsync();
             }
-            return true;
         }
+    }
+
+    private bool CheckDictionary(Dictionary<TEnum, string> radioOptions)
+    {
+        var enumValues = Enum.GetValues(typeof(TEnum)).Cast<TEnum>();
+        foreach (var value in enumValues)
+            if (!radioOptions.ContainsKey(value))
+                return false;
+        return true;
     }
 }

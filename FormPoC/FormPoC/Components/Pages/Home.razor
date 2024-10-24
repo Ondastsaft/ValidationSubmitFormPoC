@@ -1,9 +1,10 @@
 ﻿@rendermode InteractiveServer
 @page "/"
 <Tab2 Controller="tab2Controller"></Tab2>
+
 @code
 {
-    Tab2Controller tab2Controller = new Tab2Controller
+    readonly Tab2Controller tab2Controller = new()
     {
         ComponentControllers = new Tab2ComponentControllers()
     };

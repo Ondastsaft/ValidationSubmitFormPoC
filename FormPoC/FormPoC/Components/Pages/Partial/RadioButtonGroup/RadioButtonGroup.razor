@@ -16,13 +16,14 @@
     }
 }
 @typeparam TEnum where TEnum : Enum
+
 @code {
-    [Parameter, Required]
-    public RadioButtonGroupController<TEnum> Controller { get; set; }
+    [Parameter] [Required] public RadioButtonGroupController<TEnum> Controller { get; set; }
 
     private void OnValueChanged(ChangeEventArgs e)
     {
-        TEnum selectedValue = (TEnum)Enum.Parse(typeof(TEnum), e.Value.ToString());
+        var selectedValue = (TEnum)Enum.Parse(typeof(TEnum), e.Value.ToString());
         Controller.SelectedValue = selectedValue;
     }
+
 }
