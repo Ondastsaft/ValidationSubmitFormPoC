@@ -7,5 +7,8 @@
         public string LastName { get; set; }
         public string Role { get; set; }
         public int CompanyId { get; set; }
+        public string StreetAdress { get; set; }
+        public string City { get; set; }
+        public string PostalCode { get; set; }
     }
 }
