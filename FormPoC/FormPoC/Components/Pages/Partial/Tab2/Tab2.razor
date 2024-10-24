@@ -2,13 +2,19 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-8">
-            @* DisplayEmployee *@
+        <div class="col-7">
+            <EmployeeFields Controller="Controller.ComponentControllers.EmployeeController"></EmployeeFields>
         </div>
-        <div class="col-2">
-            <DropDownFromList Controller="Controller.ComponentControllers.CompanyDropDownController" ></DropDownFromList>
+        <div class="col-5">
+            <div class="row mt-3">
+                <div class="col">
+                    <DropDownFromList Controller="Controller.ComponentControllers.CompanyDropDownController"></DropDownFromList>
+                </div>
+            </div>
+            <div class="col">
+                <DropDownFromList Controller="Controller.ComponentControllers.EmployeeDropDownController"></DropDownFromList>
+            </div>
         </div>
-        <div class="col-2"><DropDownFromList Controller="Controller.ComponentControllers.EmployeeDropDownController"></DropDownFromList></div>
     </div>
 </div>
 <div class="row">
@@ -22,7 +28,7 @@
             <div class="col">
                 <div class="row">
                     <div class="col">
-                        <CheckBoxComponent Controller="Controller.ComponentControllers.ShowAltitudeController" ></CheckBoxComponent>
+                        <CheckBoxComponent Controller="Controller.ComponentControllers.ShowAltitudeController"></CheckBoxComponent>
                     </div>
                 </div>
                 <div class="row">
@@ -67,11 +73,6 @@
     </div>
     <div class="col-4">
         <GenericButton ButtonController="Controller.ComponentControllers.SubmitButtonController"></GenericButton>
-    </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        <EmployeeFields Controller="Controller.ComponentControllers.EmployeeController"></EmployeeFields>
     </div>
 </div>
 
