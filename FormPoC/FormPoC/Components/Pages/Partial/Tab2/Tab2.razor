@@ -71,7 +71,6 @@
 </div>
 <div class="row">
     <div class="col-12">
-        <!-- Pass EmployeeController to EmployeeDetails -->
         <EmployeeFields Controller="Controller.ComponentControllers.EmployeeController"></EmployeeFields>
     </div>
 </div>
@@ -83,10 +82,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Controller = new Tab2Controller
-            {
-                ComponentControllers = new Tab2ComponentControllers()
-            };
+
         await Controller.ComponentControllers.InitializeControllersAsync();
 
         Controller.ComponentControllers.ShowWeightController.IsCheckedChanged = EventCallback.Factory.Create<bool>(this, Controller.HandleShowWeightChecked);
@@ -97,4 +93,5 @@
         Controller.ComponentControllers.CompanyDropDownController.OnDropDownSelect = EventCallback.Factory.Create<bool>(this, Controller.HandleCompanySelected);
         Controller.ComponentControllers.EmployeeDropDownController.OnDropDownSelect = EventCallback.Factory.Create<bool>(this, Controller.HandleEmployeeSelected);
     }
+    //Todo Add component for input field for >10k km attach file component (VerifyAndAttachFileDistanceController)
 }

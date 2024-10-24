@@ -1,3 +1,11 @@
 ﻿@rendermode InteractiveServer
 @page "/"
-<Tab2></Tab2>
+<Tab2 Controller="tab2Controller"></Tab2>
+@code
+{
+    Tab2Controller tab2Controller = new Tab2Controller
+    {
+        ComponentControllers = new Tab2ComponentControllers()
+    };
+    //Todo Add tabs, add check for state in tab2 to activate tab 3,
+}
