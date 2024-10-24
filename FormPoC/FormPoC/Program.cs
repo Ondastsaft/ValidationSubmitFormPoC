@@ -1,6 +1,4 @@
 using FormPoC.Components;
-using FormPoC.Components.Pages.Partial.NameDropdown;
-
 namespace FormPoC
 {
     public class Program
@@ -12,8 +10,6 @@ namespace FormPoC
             // Add services to the container.
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
-            builder.Services.AddScoped<CompanyService>();
-
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
